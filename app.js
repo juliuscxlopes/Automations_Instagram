@@ -21,7 +21,7 @@ const { login } = require('./authentication');
     // ...
 
     // Fecha o navegador
-    await browser.close();
+    //await browser.close();
   } catch (error) {
     console.error('Erro durante a execução:', error);
   }
