@@ -19,9 +19,16 @@ async function login(username, password) {
   // Clica no botão de login
   await page.click('button[type="submit"]');
 
-  // Aguarda a navegação e o carregamento da página principal
-  await page.waitForNavigation();
+  // Aguarda a página de verificação de duas etapas carregar
+  try {
+    await page.waitForSelector('input[name="verificationCode"]', { timeout: 5000 });
+    console.log('Insira o código de verificação manualmente.');
+    await page.waitForTimeout(30000); // Aguarda 30 segundos para inserção do código
+  } catch (e) {
+    console.log('A verificação em duas etapas não foi necessária ou não foi detectada.');
+  }
 
+  // Retorna o navegador e a página
   return { browser, page };
 }
 
