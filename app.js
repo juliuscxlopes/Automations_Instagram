@@ -12,10 +12,10 @@ const { login } = require('./authentication');
     const { browser, page } = await login(username, password);
     
     // Navega para o perfil do usuário ou realiza outras ações desejadas
-    await page.goto(`https://www.instagram.com/${username}/`);
+    //await page.goto(`https://www.instagram.com/${username}/`);
     
     // Aguarda o carregamento do perfil
-    await page.waitForSelector('img');
+    //await page.waitForSelector('img');
     
     // Outras interações podem ser adicionadas aqui
     // ...
